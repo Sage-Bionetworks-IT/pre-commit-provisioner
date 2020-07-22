@@ -11,7 +11,7 @@ install_requirements = [
 
 setuptools.setup(
     name='pre-commit-provisioner-sage-bionetworks',
-    version='0.0.2',
+    version='0.0.4',
     author='Sage Bionetworks IT Dept.',
     author_email='it@sagebionetworks.org',
     description="",
