@@ -4,12 +4,24 @@ This repo contains scripts for the purpose of pre-commit processing
 
 ## Installation 
 
-The scripts in this repo can currently be installed by running
-`pip install .` with the working directory set to this repo's root
-directory.
+The scripts in this repo can be installed by running
+`pip install .` 
 
-This can also be [used as a pre-commit hook](https://pre-commit.com/#2-add-a-pre-commit-configuration), by including the
-following in `.pre-commit-config.yaml`: 
+## Execution
+Running scripts:
+```
+➜  check-stack-names ./config/prod/*.yaml
+- stack name 'foo_stack' does not match naming requirements
+- stack name 'bar stack' does not match naming requirements
+
+A stack name can contain only alphanumeric characters (case-sensitive)
+and hyphens. It must start with an alphabetic character and can't be
+longer than 128 characters.
+```
+
+## Pre-commit hook
+The scripts can also be [used as a pre-commit hook](https://pre-commit.com/#2-add-a-pre-commit-configuration),
+by including the following in `.pre-commit-config.yaml`: 
 ```
 -   repo: https://github.com/Sage-Bionetworks-IT/pre-commit-provisioner
     rev: INSERT_VERSION
@@ -19,7 +31,7 @@ following in `.pre-commit-config.yaml`:
 ```
 replacing `INSERT_VERSION` with a version tag or commit SHA-1.
 
-## Usage
+## Linters
 
 The hook `compare-stack-and-file-names` can be run from the root of
 a Git repo. It will look for any files ending in `.yaml` under the
